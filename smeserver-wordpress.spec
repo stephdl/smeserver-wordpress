@@ -3,8 +3,8 @@
 # Name: Stephen Noble
 
 %define name smeserver-wordpress
-%define version 1.0
-%define release 13
+%define version 1.2
+%define release 1
 Summary: smserver rpm to setup mysql database and web link for wordpress weblog
 Name: %{name}
 Version: %{version}
@@ -15,8 +15,8 @@ Group: SMEserver/addon
 Source: %{name}-%{version}.tar.gz
 BuildArchitectures: noarch
 BuildRoot: /var/tmp/%{name}-%{version}
-BuildRequires: e-smith-devtools >= 1.13.1-03
-Requires: e-smith-release >= 8.0
+BuildRequires: e-smith-devtools
+Requires: e-smith-release >= 9.0
 Requires: wordpress
 AutoReqProv: no
 
@@ -24,6 +24,9 @@ AutoReqProv: no
 smserver rpm to setup mysql database and web link for wordpress weblog
 
 %changelog
+* Wed Jun 20 2014 stephane de Labrusse <stephdl@de-labrusse.fr> 1.2-1.sme
+- initial release to sme9
+
 * Tue Nov 5 2013 JP Pialasse <tests@pialasse.com> 1.0-13.sme
 - added chown to allow plugin instalaltion and translation
 

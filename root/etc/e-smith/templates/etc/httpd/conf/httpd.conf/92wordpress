@@ -75,6 +75,7 @@
       if ($pass)
       {
           $OUT .= "    AuthName \"$name\"\n";
+          $OUT .= "    AuthBasicProvider external\n";
           $OUT .= "    AuthType Basic\n";
           $OUT .= "    AuthExternal pwauth\n";
           $OUT .= "    require valid-user\n";
