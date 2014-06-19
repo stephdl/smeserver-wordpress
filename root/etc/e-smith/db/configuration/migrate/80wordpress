@@ -1,0 +1,10 @@
+{
+    use MIME::Base64 qw(encode_base64);
+
+    my $rec = $DB->get('wordpress') || $DB->new_record('wordpress', {type => 'service'});
+
+    my $pw = $rec->prop('DbPassword');
+    return "" if $pw;
+
+    $rec->set_prop('DbPassword', sprintf("%15.0f", int( (1000000000000000) * rand() )));
+}

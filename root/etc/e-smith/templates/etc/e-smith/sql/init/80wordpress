@@ -1,0 +1,20 @@
+{
+    my $db = $wordpress{DbName} || 'wordpress';
+    my $user = $wordpress{DbUser} || 'wordpress';
+    my $pass = $wordpress{DbPassword} || 'changeme';
+    $OUT .= <<END
+#! /bin/sh
+    if [ -d /var/lib/mysql/$db ]; then
+      exit
+    fi
+    /usr/bin/mysql <<EOF
+    CREATE DATABASE $db DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
+    use $db;
+    #create tables manually wiki.contribs.org/wordpress 
+    use mysql;
+    GRANT ALL PRIVILEGES ON $db.* TO $user\@localhost
+            IDENTIFIED BY '$pass';
+    flush privileges;
+EOF
+END
+}

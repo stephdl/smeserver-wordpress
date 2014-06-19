@@ -1,0 +1,4 @@
+#!/usr/bin/perl
+
+system('chown www:root -R /usr/share/wordpress');
+

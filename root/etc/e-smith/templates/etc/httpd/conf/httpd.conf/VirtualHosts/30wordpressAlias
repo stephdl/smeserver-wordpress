@@ -1,0 +1,11 @@
+{
+    my $status = $wordpress{'status'} || "disabled";
+    return "    # wordpress is disabled in this VirtualHost"
+            unless $status eq 'enabled';
+
+    if ($port eq "443")
+    {
+       $OUT .= "    ProxyPass /wordpress http://127.0.0.1/wordpress\n";
+    }
+}
+

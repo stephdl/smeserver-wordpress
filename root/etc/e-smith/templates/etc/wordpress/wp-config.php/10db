@@ -1,0 +1,21 @@
+{
+    $OUT .= "define('DB_NAME',     \'$wordpress{DbName}\'); \n";
+    $OUT .= "define('DB_USER',     \'$wordpress{DbUser}\'); \n";
+    $OUT .= "define('DB_PASSWORD', \'$wordpress{DbPassword}\'); \n";
+    $OUT .= "define('DB_HOST',      \'localhost\'); \n";
+}
+
+/** Database Charset to use in creating database tables. */
+define('DB_CHARSET', 'utf8');
+
+/** The Database Collate type. Don't change this if in doubt. */
+define('DB_COLLATE', '');
+
+/**
+ * WordPress Database Table prefix.
+ *
+ * You can have multiple installations in one database if you give each a unique
+ * prefix. Only numbers, letters, and underscores please!
+ */
+$table_prefix  = 'wp_';
+
