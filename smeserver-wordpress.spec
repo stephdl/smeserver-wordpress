@@ -10,7 +10,7 @@ Name: %{name}
 Version: %{version}
 Release: %{release}%{?dist}
 License: GNU GPL version 2
-URL: http://www.dungog.net/wiki
+URL: http://wiki.contribs.org/Main_Page
 Group: SMEserver/addon
 Source: %{name}-%{version}.tar.gz
 BuildArchitectures: noarch
@@ -48,6 +48,7 @@ smserver rpm to setup mysql database and web link for wordpress weblog
 
 * Wed Jun 05 2013 Stephane de Labrusse <stephdl@de-labrusse.fr> 1.0.4
 - add a tmp folder in httpd.conf
+
 * Mon Jun 03 2013 Stephane de Labrusse <stephdl@de-labrusse.fr> 1.0-3
 - backup html-folder, mysql-base, and config-file during erase and upgrade process
 
@@ -86,23 +87,7 @@ smserver rpm to setup mysql database and web link for wordpress weblog
 
 %build
 perl createlinks
-#mkdir -p         root/etc/e-smith/db/accounts/defaults/wordpress
-#echo "reserved" > root/etc/e-smith/db/accounts/defaults/wordpress/type
-#
-#mkdir -p                  root/etc/e-smith/db/configuration/defaults/wordpress
-#echo "Wordpress weblog" > root/etc/e-smith/db/configuration/defaults/wordpress/Name
-#echo "global"           > root/etc/e-smith/db/configuration/defaults/wordpress/PublicAccess
-#echo "enabled"          > root/etc/e-smith/db/configuration/defaults/wordpress/status
-#echo "wordpress"        > root/etc/e-smith/db/configuration/defaults/wordpress/DbName
-#echo "wordpress"        > root/etc/e-smith/db/configuration/defaults/wordpress/DbUser
-#echo "en"               > root/etc/e-smith/db/configuration/defaults/wordpress/WpLang
-#
-#mkdir -p                   root/etc/e-smith/templates.metadata/etc/e-smith/sql/init
-#echo "PERMS=0750"       >  root/etc/e-smith/templates.metadata/etc/e-smith/sql/init/80wordpress
-#
-##only needed so it is removed afterwards
-#mkdir -p   root/opt/wordpress
-#touch      root/opt/wordpress/wp-config.php
+
 
 %install
 rm -rf $RPM_BUILD_ROOT
@@ -113,6 +98,7 @@ rm -f %{name}-%{version}-filelist
 echo "%doc COPYING"  >> %{name}-%{version}-filelist
 
 %clean
+
 cd ..
 rm -rf %{name}-%{version}
 
@@ -120,28 +106,9 @@ rm -rf %{name}-%{version}
 %preun
 
 %post
-#/etc/e-smith/events/actions/initialize-default-databases
-#/sbin/e-smith/expand-template /etc/e-smith/sql/init/80wordpress
-#/etc/rc.d/init.d/mysql.init start
-#/sbin/e-smith/expand-template /etc/httpd/conf/httpd.conf
-#/sbin/e-smith/expand-template /opt/wordpress/wp-config.php
-#/usr/bin/sv h /service/httpd-e-smith
-#
-#echo ""
-#echo "see http://wiki.contribs.org/Wordpress"
-#echo "see config show wordpress"
-#/sbin/e-smith/config show wordpress
-#echo " "
-
-# this one under I am not sure if it is a good thing ..................... !!!!!!
-#/bin/chown -R www:www /opt/wordpress/
 
 %postun
-#uninstall
-#if [ $1 = 0 ] ; then
-# /sbin/e-smith/expand-template /etc/httpd/conf/httpd.conf
-# /usr/bin/sv h /service/httpd-e-smith
-#fi
+
 
 %files -f %{name}-%{version}-filelist
 %defattr(-,root,root)
