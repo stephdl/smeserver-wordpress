@@ -63,7 +63,7 @@
       $OUT .= "\n";
       $OUT .= "<Directory /usr/share/wordpress>\n";
       $OUT .= "    AddType application/x-httpd-php .php\n";
-      $OUT .= "    #php_admin_value open_basedir /usr/share/wordpress:/etc/wordpress:/tmp/:/usr/share/pear:/usr/share/php/\n";
+      $OUT .= "    php_admin_value open_basedir /usr/share/wordpress:/etc/wordpress:/tmp/:/usr/share/pear:/usr/share/php/\n";
       $OUT .= "    Options None\n";
       $OUT .= "    order deny,allow\n";
       $OUT .= "    deny from all\n";
