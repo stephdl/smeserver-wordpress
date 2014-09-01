@@ -94,7 +94,6 @@ rm -rf $RPM_BUILD_ROOT
 (cd root   ; find . -depth -print | cpio -dump $RPM_BUILD_ROOT)
 rm -f %{name}-%{version}-filelist
 /sbin/e-smith/genfilelist $RPM_BUILD_ROOT \
-    --dir /etc/worddpress 'attr(0755,root,root)' \
     > %{name}-%{version}-filelist
 echo "%doc COPYING"  >> %{name}-%{version}-filelist
 
@@ -113,4 +112,5 @@ rm -rf %{name}-%{version}
 
 %files -f %{name}-%{version}-filelist
 %defattr(-,root,root)
+%attr(755,root,root) /etc/wordpress/
 
