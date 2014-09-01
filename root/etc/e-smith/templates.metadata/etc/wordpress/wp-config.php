@@ -1,3 +1,3 @@
-UID="www"
-GID="www"
+UID="root"
+GID="root"
 PERMS=0644
