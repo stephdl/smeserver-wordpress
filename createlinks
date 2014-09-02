@@ -17,3 +17,5 @@ use esmith::Build::CreateLinks qw(:all);
 # actions to perform
 	safe_symlink("../actions/wordpress", "root/etc/e-smith/events/conf-wordpress/20wordpress");
 	safe_symlink("../actions/wordpress", "root/etc/e-smith/events/bootstrap-console-save/20wordpress");
+        safe_symlink("../actions/wordpress", "root/etc/e-smith/events/console-save/20wordpress");
+

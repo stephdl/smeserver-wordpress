@@ -22,7 +22,8 @@ my $pw=$wordpress{'phrase'} ||"";
                         }
                         else
                         {
-                                $pw = encode_base64($buf);
+                            use MIME::Base64 qw(encode_base64);
+                            $pw = encode_base64($buf);
                             chomp $pw;
                         }
                         close RANDOM;
