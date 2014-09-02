@@ -8,8 +8,8 @@
  * @since 2.6.0
  */
 {
-my $pw=$wordpress{'phrase'} ||"";
-	if ( $pw ne "" )
+my $pw=$wordpress{'Salt'} || "disabled";
+	if ( $pw eq "enabled" )
 		{
                 if ( open( RANDOM, "/dev/urandom" ) )
                 {

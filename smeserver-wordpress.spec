@@ -24,10 +24,11 @@ AutoReqProv: no
 smserver rpm to setup mysql database and web link for wordpress weblog
 
 %changelog
-* Wed Jun 20 2014 stephane de Labrusse <stephdl@de-labrusse.fr> 1.2-2.sme
+* Tue Sep 02 2014 stephane de Labrusse <stephdl@de-labrusse.fr> 1.2-2.sme
 - corrected the lack of module MIME::Base64 [SME: 8548]
 - corrected the new ownership of www on /etc/wordpress [SME: 8546]
 - added templates.metadata to root,www 0640 on /etc/wordpress/wp-config.php
+- changed db {wordpress}{phrase} to {wordpress}{Salt}
  
 * Wed Jun 20 2014 stephane de Labrusse <stephdl@de-labrusse.fr> 1.2-1.sme
 - initial release to sme9
