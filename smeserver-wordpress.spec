@@ -4,7 +4,7 @@
 
 %define name smeserver-wordpress
 %define version 1.2
-%define release 2
+%define release 3
 Summary: smserver rpm to setup mysql database and web link for wordpress weblog
 Name: %{name}
 Version: %{version}
@@ -24,6 +24,11 @@ AutoReqProv: no
 smserver rpm to setup mysql database and web link for wordpress weblog
 
 %changelog
+* Wed Oct 15 2014 stephane de Labrusse <stephdl@de-labrusse.fr> 1.2-3.sme
+- Thanks to Remi Collet for the help to resolve the 'bug' 
+- define('DISALLOW_FILE_MODS', false); :)
+- Added another default value to {wordpress}{Salt}
+
 * Tue Sep 02 2014 stephane de Labrusse <stephdl@de-labrusse.fr> 1.2-2.sme
 - corrected the lack of module MIME::Base64 [SME: 8548]
 - corrected the new ownership of www on /etc/wordpress [SME: 8546]
