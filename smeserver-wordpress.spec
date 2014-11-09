@@ -4,7 +4,7 @@
 
 %define name smeserver-wordpress
 %define version 1.2
-%define release 3
+%define release 4
 Summary: smserver rpm to setup mysql database and web link for wordpress weblog
 Name: %{name}
 Version: %{version}
@@ -24,6 +24,9 @@ AutoReqProv: no
 smserver rpm to setup mysql database and web link for wordpress weblog
 
 %changelog
+* Sun Nov 9 2014 stephane de Labrusse <stephdl@de-labrusse.fr> 1.2-4.sme
+- Corrected a typo in the virtualhost https redirection
+
 * Wed Oct 15 2014 stephane de Labrusse <stephdl@de-labrusse.fr> 1.2-3.sme
 - Thanks to Remi Collet for the help to resolve the 'bug' 
 - define('DISALLOW_FILE_MODS', false); :)

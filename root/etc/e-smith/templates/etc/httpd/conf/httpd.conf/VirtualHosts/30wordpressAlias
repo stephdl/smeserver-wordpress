@@ -3,9 +3,10 @@
     return "    # wordpress is disabled in this VirtualHost"
             unless $status eq 'enabled';
 
-    if ($port eq "443")
-    {
-       $OUT .= "    ProxyPass /wordpress http://127.0.0.1/wordpress\n";
-    }
+       $haveSSL = (exists ${modSSL}{status} and ${modSSL}{status} eq "enabled") ? 'yes' : 'no';
+       if (($port eq "80") && ($haveSSL eq 'yes'))
+             {
+               $OUT .= " RewriteRule ^/wordpress(/.*|\$) https://%{HTTP_HOST}/wordpress\$1 [L,R]\n";
+             }  
 }
 
