@@ -16,7 +16,7 @@ Source: %{name}-%{version}.tar.gz
 BuildArchitectures: noarch
 BuildRoot: /var/tmp/%{name}-%{version}
 BuildRequires: e-smith-devtools
-Requires: e-smith-release >= 9.0
+Requires: e-smith-release >= 8.0
 Requires: wordpress
 AutoReqProv: no
 
