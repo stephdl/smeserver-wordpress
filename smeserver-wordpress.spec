@@ -4,7 +4,7 @@
 
 %define name smeserver-wordpress
 %define version 1.2
-%define release 4
+%define release 5
 Summary: smserver rpm to setup mysql database and web link for wordpress weblog
 Name: %{name}
 Version: %{version}
@@ -24,6 +24,9 @@ AutoReqProv: no
 smserver rpm to setup mysql database and web link for wordpress weblog
 
 %changelog
+* Thu Dec 25 2014 stephane de Labrusse <stephdl@de-labrusse.fr> 1.2-5.sme
+- Force the 'Salt property' to enabled
+
 * Sun Nov 9 2014 stephane de Labrusse <stephdl@de-labrusse.fr> 1.2-4.sme
 - Corrected a typo in the virtualhost https redirection
 

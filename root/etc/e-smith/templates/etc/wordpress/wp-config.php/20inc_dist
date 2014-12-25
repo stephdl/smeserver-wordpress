@@ -8,9 +8,10 @@
  * @since 2.6.0
  */
 {
-my $pw=$wordpress{'Salt'} || "put your unique phrase here";
+use MIME::Base64;
+my $pw=$wordpress{'Salt'} || "enabled";
 	if ( $pw eq "enabled" )
-		{
+                {
                 if ( open( RANDOM, "/dev/urandom" ) )
                 {
                         my $buf;
@@ -22,7 +23,6 @@ my $pw=$wordpress{'Salt'} || "put your unique phrase here";
                         }
                         else
                         {
-                            use MIME::Base64 qw(encode_base64);
                             $pw = encode_base64($buf);
                             chomp $pw;
                         }
@@ -30,9 +30,9 @@ my $pw=$wordpress{'Salt'} || "put your unique phrase here";
                 }
                 else
                 {
-		$pw= 'put your unique phrase here';
-		}
-		}
+                $pw= 'put your unique phrase here';
+                }
+                }
 
 $OUT .= "define('AUTH_KEY',         '$pw');
 define('SECURE_AUTH_KEY',  '$pw');
