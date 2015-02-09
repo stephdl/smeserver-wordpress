@@ -1,0 +1,3 @@
+{
+$OUT .= "--go-into usr/share/wordpress/wp-content\n" if (($wordpress{BackupFiles} || 'enabled') eq 'enabled');
+}
