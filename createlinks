@@ -6,16 +6,44 @@ use esmith::Build::CreateLinks qw(:all);
 # links to add
 
 # templates to expand
-    	templates2events( "/etc/wordpress/wp-config.php" , qw( conf-wordpress bootstrap-console-save post-upgrade console-save) );
-        templates2events( "/etc/e-smith/sql/init/80wordpress" , qw( conf-wordpress bootstrap-console-save post-upgrade console-save) );
-	templates2events( "/etc/httpd/conf/httpd.conf", "conf-wordpress" );
+for my $event (qw(
+bootstrap-console-save
+console-save
+conf-wordpress
+wordpress-update
+))
+{
+    	templates2events( "/etc/wordpress/wp-config.php" , $event );
+        templates2events( "/etc/e-smith/sql/init/80wordpress" , $event );
+}
+
+# templates to expand
+for my $event (qw(
+conf-wordpress
+wordpress-update
+))
+{
+        templates2events( "/etc/httpd/conf/httpd.conf", $event );
+        templates2events( "/etc/dar/DailyBackup.dcf", $event );
+}
 
 # services to launch on event
-	safe_symlink("sigusr1", "root/etc/e-smith/events/conf-wordpress/services2adjust/httpd-e-smith");
-        safe_symlink("restart", "root/etc/e-smith/events/conf-wordpress/services2adjust/mysql.init");
+for my $event (qw(
+conf-wordpress
+wordpress-update
+))
+{
+	safe_symlink("sigusr1", "root/etc/e-smith/events/$event/services2adjust/httpd-e-smith");
+        safe_symlink("restart", "root/etc/e-smith/events/$event/services2adjust/mysql.init");
+}
 
 # actions to perform
-	safe_symlink("../actions/wordpress", "root/etc/e-smith/events/conf-wordpress/20wordpress");
-	safe_symlink("../actions/wordpress", "root/etc/e-smith/events/bootstrap-console-save/20wordpress");
-        safe_symlink("../actions/wordpress", "root/etc/e-smith/events/console-save/20wordpress");
-
+for my $event (qw(
+bootstrap-console-save
+console-save
+conf-wordpress
+wordpress-update
+))
+{
+	safe_symlink("../actions/wordpress", "root/etc/e-smith/events/$event/20wordpress");
+}
